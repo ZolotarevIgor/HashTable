@@ -1,0 +1,43 @@
+﻿<Window x:Class="Hash.Add"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hash"
+        mc:Ignorable="d"
+        Height="300" Width="350" KeyDown="Add_KeyDown" Title="Добавление элементов" ResizeMode="CanMinimize">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Border Name="BorderAdd" BorderBrush="Gray" BorderThickness="0" CornerRadius="3"  Margin="10,5" VerticalAlignment="Center">
+            <ScrollViewer Name="Scrolltxb" Background="{x:Null}"  Foreground="{x:Null}"  VerticalAlignment="Stretch"
+                   HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+                  VerticalScrollBarVisibility="Hidden">
+           
+            <StackPanel Name="StackPan">
+                
+            </StackPanel>
+            
+            </ScrollViewer>
+        </Border>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Left" Margin="11,0">
+            <CheckBox Name="AddMany" Margin="10,10" Background="{x:Null}" FontSize="18" VerticalContentAlignment="Center" Click="AddMany_Click">Добавить несколько:</CheckBox>
+            <TextBox Name="AddCount" FontSize="18" Width="40" Height="30" IsEnabled="False" Background="{x:Null}" Text="3" KeyDown="AddCount_KeyDown" />
+        </StackPanel>
+
+        <CheckBox Name="FromBase" Margin="21,10" Background="{x:Null}" FontSize="18" VerticalContentAlignment="Center" Click="FromBase_Click"     Grid.Row="2">Заполнить из базы</CheckBox>
+        <Button Content="Добавить" HorizontalAlignment="Center" Height="34" VerticalAlignment="Center" Width="88" Click="Button_Click" Grid.Row="4" />
+        <StackPanel Grid.Row="3" Margin="15,0">
+            <Label Name="DiamL" Content="Выберите диапазон чисел:" IsEnabled="False" FontSize="18"/>
+            <Slider Name="SuperSlider3000" Background="{x:Null}" FontSize="18" 
+                TickFrequency="10" IsMoveToPointEnabled="True" SmallChange ="20" Value="50000"
+                VerticalContentAlignment="Center" Grid.Row="3"  Minimum="10" Maximum="100000" IsEnabled="False" ValueChanged="SuperSlider3000_ValueChanged" PreviewMouseUp="SuperSlider3000_PreviewMouseUp" />
+        </StackPanel>
+    </Grid>
+</Window>

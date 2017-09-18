@@ -1,0 +1,61 @@
+﻿<Page x:Class="Hash.Theory"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Hash"
+      mc:Ignorable="d" 
+     d:DesignHeight="700" d:DesignWidth="900"
+      Title="Теория">
+
+    <Page.Resources>
+        <ControlTemplate x:Key="Doctemp" TargetType="DocumentViewer">
+            
+        </ControlTemplate>
+    </Page.Resources>
+    <Grid Name="grid" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+       
+
+        <Button   HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="5" Grid.Row="1"   Width="30"   RenderTransformOrigin="0.5,0.5" Padding="-100,1" Click="Button_Click" Background="{x:Null}" >
+
+            <Image Name="img" HorizontalAlignment="Left" VerticalAlignment="Center"  Source="Resources/back1600.png" Width="30" RenderTransformOrigin="0.5,0.5" >
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="0"/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Button>
+        <DocumentViewer Name="docViewer" Focusable="True" GotFocus="Button_Click" ShowPageBorders="False" Margin="40,5,5,5"  Grid.Column="1"  Grid.RowSpan="2" Grid.Row="1" Background="{x:Null}" FocusableChanged="docViewer_FocusableChanged" MouseDown="docViewer_MouseDown" />
+
+
+
+
+        <TreeView  x:Name="tree"  Visibility="Visible" HorizontalAlignment="Left" VerticalAlignment="Stretch" Grid.Row="1" Width="300" Margin="40,5,0,5" Background="White">
+
+            <TreeViewItem Header="Хеширование" FontSize="18" Margin="0,10,0,4" Selected="TreeViewItem_Selected"/>
+            <TreeViewItem  Header="Хеш-таблица" FontSize="18" Margin="0,4"  Selected="TreeViewItem_Selected"/>
+            <TreeViewItem  Header="Свойства хеш-таблиц" FontSize="18" Margin="0,4" Selected="TreeViewItem_Selected" />
+            <TreeViewItem  Header="Хеш-функции" FontSize="18" Margin="0,4" Selected="TreeViewItem_Selected" />
+            <TreeViewItem Header="Алгоритмы хеширования" FontSize="18" Margin="0,4" Selected="TreeViewItem_Selected">
+                <TreeViewItem Header="Метод остатков от деления" FontSize="18" Margin="0,10,0,4" Selected="TreeViewItem_Selected"/>
+                <TreeViewItem Header="Метод середины квадрата" FontSize="18" Margin="0,10,0,4" Selected="TreeViewItem_Selected"/>
+                <TreeViewItem Header="Мультипликативный метод" FontSize="18" Margin="0,10,0,4" Selected="TreeViewItem_Selected"/>
+            </TreeViewItem>
+            <TreeViewItem Header="Открытое хеширование" FontSize="18" Margin="0,4" Selected="TreeViewItem_Selected"/>
+            <TreeViewItem Header="Закрытое хеширование" FontSize="18" Margin="0,4" Selected="TreeViewItem_Selected">
+                <TreeViewItem Header="Методы повторного хеширования" FontSize="18" Margin="0,4" Selected="TreeViewItem_Selected"/>
+            </TreeViewItem>
+        </TreeView>
+        <Button  HorizontalAlignment="Left" Margin="5,5,0,5" VerticalAlignment="Stretch" Width="100" Click="Button_Click_1" Background="{x:Null}" FontSize="18">
+            <Image HorizontalAlignment="Left" Margin="0,0,30,0" VerticalAlignment="Stretch"  Source="Resources/back1600.png"/>
+        </Button>
+
+
+    </Grid>
+</Page>
