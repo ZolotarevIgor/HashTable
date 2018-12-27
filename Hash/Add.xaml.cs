@@ -27,8 +27,7 @@ namespace Hash
 
             Top = (screenHeight - 2 * Height) / 2;
             Left = (screenWidth - 2 * Width) / 2;
-
-
+            
             Work = th;
             ManyAdd(1);
 
@@ -45,15 +44,15 @@ namespace Hash
                 }
             }
 
-            this.Close();
+            Close();
         }
 
         private void Add_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Escape)
-                this.Close();
+                Close();
         }
-        private void txtb_KeyDown(object sender, KeyEventArgs e)
+        private void Txtb_KeyDown(object sender, KeyEventArgs e)
         {
             if (Key.D0 <= e.Key && Key.D9 >= e.Key)
             {
@@ -62,7 +61,7 @@ namespace Hash
             }
             e.Handled = true;
         }
-        private void txtb_KeyUp(object sender, KeyEventArgs e)
+        private void Txtb_KeyUp(object sender, KeyEventArgs e)
         {
             int a;
             
@@ -91,7 +90,7 @@ namespace Hash
             else
                 try
                 {
-                    ManyAdd(Int32.Parse(AddCount.Text));
+                    ManyAdd(int.Parse(AddCount.Text));
                 }
                 catch
                 {
@@ -110,7 +109,7 @@ namespace Hash
                 e.Handled = false;
                 if (AddCount.Text != "")
                 {
-                    Count = Int32.Parse(AddCount.Text + (new KeyConverter()).ConvertToString(e.Key));
+                    Count = int.Parse(AddCount.Text + new KeyConverter().ConvertToString(e.Key));
                     if (Count > 100)
                     {
                         AddCount.Text = "100";
@@ -122,7 +121,7 @@ namespace Hash
                     ManyAdd(Count,false);
                     return;
                 }
-                ManyAdd(Int32.Parse((new KeyConverter()).ConvertToString(e.Key)),false);
+                ManyAdd(int.Parse(new KeyConverter().ConvertToString(e.Key)),false);
                 return;
             }
 
@@ -132,39 +131,30 @@ namespace Hash
 
         private void ManyAdd(int Count,bool KeyToFoc = true)
         {
-
-
             foreach (TextBox item in StackPan.Children)
-            {
                 if (item.Text != "")
-                {
                     AddValue.Add(item.Text);
-                }
-            }
             switch (Count)
             {
                 case 1:
-                    this.Height = 300;
+                    Height = 300;
                     BorderAdd.BorderThickness = new Thickness(0);
                     Scrolltxb.VerticalScrollBarVisibility = ScrollBarVisibility.Hidden;
                     break;
 
                 case 2:
-                    this.Height = 350;
+                    Height = 350;
                     BorderAdd.BorderThickness = new Thickness(0);
                     Scrolltxb.VerticalScrollBarVisibility = ScrollBarVisibility.Hidden;
                     break;
-
                 default:
-                    this.Height = 390;
+                    Height = 390;
                     BorderAdd.BorderThickness = new Thickness(1);
                     Scrolltxb.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
                     break;
             }
             for (int i = 0; i < StackPan.Children.Count;)
-            {
                 StackPan.Children.RemoveAt(0);
-            }
 
             TextBox TB;
             Thickness margin = new Thickness();
@@ -173,13 +163,15 @@ namespace Hash
 
             for (int i = 0; i < Count; i++)
             {
-                TB = new TextBox();
-                TB.Text = "";
-                TB.Height = 35;
-                TB.FontSize = 18;
-                TB.Margin = margin;
-                TB.KeyUp += txtb_KeyUp;
-                TB.KeyDown += txtb_KeyDown;
+                TB = new TextBox
+                {
+                    Text = "",
+                    Height = 35,
+                    FontSize = 18,
+                    Margin = margin
+                };
+                TB.KeyUp += Txtb_KeyUp;
+                TB.KeyDown += Txtb_KeyDown;
                 TB.VerticalContentAlignment = VerticalAlignment.Center;
                 TB.Tag = i;
 
@@ -187,23 +179,17 @@ namespace Hash
             }
 
             for (int i = 0; i < StackPan.Children.Count && i < AddValue.Count; i++)
-            {
                 ((TextBox)StackPan.Children[i]).Text = AddValue[i];
-            }
             AddValue.RemoveAll((x) => true);
 
             indexUse = new bool[StackPan.Children.Count];
 
             for (int i = 0; i < indexUse.Length; i++)
-            {
                 indexUse[i] = false;
-            }
+
             for (int i = 0; i < indexUse.Length; i++)
-            {
                 if (((TextBox)StackPan.Children[i]).Text != "")
                     indexUse[i] = true;
-
-            }
 
             if (FromBase.IsChecked == true)
                 AddFromBase();
@@ -214,16 +200,12 @@ namespace Hash
 
         private void AddFromBase()
         {
-
-
             Random rand = new Random();
             if (FromBase.IsChecked == true)
                 for (int i = 0; i < indexUse.Length; i++)
-                {
                     if (!indexUse[i])
                         ((TextBox)StackPan.Children[i]).Text = rand.Next(0, Diam).ToString();
-                }
-
+         
         }
 
 
@@ -237,15 +219,11 @@ namespace Hash
                 indexUse = new bool[StackPan.Children.Count];
 
                 for (int i = 0; i < indexUse.Length; i++)
-                {
                     indexUse[i] = false;
-                }
+
                 for (int i = 0; i < indexUse.Length; i++)
-                {
                     if (((TextBox)StackPan.Children[i]).Text != "")
                         indexUse[i] = true;
-
-                }
 
                 AddFromBase();
             }
@@ -255,10 +233,8 @@ namespace Hash
                 DiamL.IsEnabled = false;
 
                 for (int i = 0; i < StackPan.Children.Count; i++)
-                {
                     if (!indexUse[i])
                         ((TextBox)StackPan.Children[i]).Text = "";
-                }
             }
         }
 
@@ -266,7 +242,6 @@ namespace Hash
         {
             Diam = (int)SuperSlider3000.Value;
             DiamL.Content = $"Выберите диапазон чисел: {Diam}";
-
         }
 
         private void SuperSlider3000_PreviewMouseUp(object sender, MouseButtonEventArgs e)

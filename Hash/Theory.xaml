@@ -31,7 +31,7 @@
                 </Image.RenderTransform>
             </Image>
         </Button>
-        <DocumentViewer Name="docViewer" Focusable="True" GotFocus="Button_Click" ShowPageBorders="False" Margin="40,5,5,5"  Grid.Column="1"  Grid.RowSpan="2" Grid.Row="1" Background="{x:Null}" FocusableChanged="docViewer_FocusableChanged" MouseDown="docViewer_MouseDown" />
+        <DocumentViewer Name="docViewer" Focusable="True" GotFocus="Button_Click" ShowPageBorders="False" Margin="40,5,5,5"  Grid.Column="1"  Grid.RowSpan="2" Grid.Row="1" Background="{x:Null}" FocusableChanged="DocViewer_FocusableChanged" MouseDown="DocViewer_MouseDown" />
 
 
 

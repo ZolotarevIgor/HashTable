@@ -42,11 +42,6 @@ namespace Hash
                 CB3.SelectedIndex = (int)nClosedHashType;
                 CB3.IsEnabled = L3.IsEnabled = true;
             }
-
-            
-            //L3.IsEnabled = nTypeHash == TypeHash.Closed;
-
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -96,13 +91,13 @@ namespace Hash
             }
 
             Parant.WorkButton("",this);
-            this.Close();
+            Close();
             
         }
 
        
 
-        private void typeCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void TypeCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (typeCB.Text != "Открытое")
             {

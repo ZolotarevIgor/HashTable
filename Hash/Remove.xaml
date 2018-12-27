@@ -14,7 +14,7 @@
         <StackPanel>
             <Label HorizontalAlignment="Left" Height="34" VerticalAlignment="Center" Margin="10,5,0,0" FontSize="20"  Grid.Row="0">Введите ключ:</Label>
 
-            <TextBox Name="txtb" FontSize="18" Height="30" Margin="10,5" Focusable="True" KeyDown="txtb_KeyDown" Grid.Row="0" VerticalAlignment="Top"/>
+            <TextBox Name="txtb" FontSize="18" Height="30" Margin="10,5" Focusable="True" KeyDown="Txtb_KeyDown" Grid.Row="0" VerticalAlignment="Top"/>
         </StackPanel>
         <Button Content="Удалить" HorizontalAlignment="Center" Height="34" VerticalAlignment="Center" Width="88" Click="Button_Click" Grid.Row="1"/>
 

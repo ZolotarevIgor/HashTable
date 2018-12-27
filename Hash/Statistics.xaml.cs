@@ -15,7 +15,7 @@ namespace Hash
         {
             InitializeComponent();
             Work = th;
-            this.Focus();
+            Focus();
             L01.Content = Count.ToString();
             L11.Content = Size.ToString();
             L21.Content = B.ToString("##.##") + "%";
@@ -25,7 +25,7 @@ namespace Hash
             chart.ChartAreas.Add(new ChartArea("Default"));
             if (Graph == null || Graph.Length <= 2)
             {
-                this.Height = 300;
+                Height = 300;
                 G2.Height = 1;
                 return;
 
@@ -66,7 +66,7 @@ namespace Hash
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Escape || e.Key == Key.Back || e.Key == Key.Enter)
-                this.Close();
+                Close();
         }
     }
 }

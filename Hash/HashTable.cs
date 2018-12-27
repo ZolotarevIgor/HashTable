@@ -40,11 +40,11 @@ namespace HashTable
                 if (LeftBorder < 0)
                     return -1;
                 for (int i = LeftBorder; i < int.MaxValue; i++)
-                    if (isSimple(i))
+                    if (IsSimple(i))
                         return i;
                 return -1;
             }
-            protected static bool isSimple(int N)//проверяет, является ли число простым
+            protected static bool IsSimple(int N)//проверяет, является ли число простым
             {
                 if (N <= 0)
                     return false;
@@ -92,7 +92,7 @@ namespace HashTable
             {
                 if (Element as string == "Пусто")
                     return -1;
-                Int64 key = Element.GetHashCode();
+                long key = Element.GetHashCode();
                 if (typeof(T) == "".GetType())
                 {
                     if (Element as string == "Пусто")
@@ -101,7 +101,6 @@ namespace HashTable
                 }
                 key *= key;//возводим в квадрат
                 key >>= (int)Abs((Log(key, 2) - Log(Size, 2)) / 2);
-                //key /= (int)Pow(10, Abs((Log(key, 10) - Log(Size, 10)) / 2)); // Отбрасываем младших бит, используя побитовый сдвиг вправо
                 return (int)(key % Size); // Возвращаем младших бит
             }
 
@@ -370,16 +369,12 @@ namespace HashTable
         }
         public class ClosedHashTable<T> : HashClass<T>, IHash<T> where T: class
         {
-            ClosedHashType Type;
+            private ClosedHashType Type { get; }
             T[] HashArray;
             bool[] Deleted;
-            HashFunction DoubleHashing;
+            private readonly HashFunction DoubleHashing;
             public int Count { get { return count; } }
             public int Size { get { return size; } }
-            public new ClosedHashType GetType
-            {
-                get { return Type; }
-            }
             public T[][] Hash
             {
                 get
@@ -593,27 +588,13 @@ namespace HashTable
                 switch (HFunction)
                 {
                     case HashFunction.Module:
-                        {
-                            //int Module = FindPrimeNumber(Size);
-                           // size = (int)(Module*1.5);
-                            ComputeHash = ComputeHashModule;
-                        }
+                        ComputeHash = ComputeHashModule;
                         break;
                     case HashFunction.Mult:
-                        {
-                            //int N = (int)Truncate(Log(Size, 2.0)) + 1; //N=log2(M)+1
-                            //size = (int)Pow(2, N); //здесь получается размер, равный 2^N для того, чтобы поместились все члены исходного массива
-                            //size = (int)(size * 1.5);
-                            ComputeHash = ComputeHashMult;
-                        }
+                        ComputeHash = ComputeHashMult;
                         break;
                     case HashFunction.Center:
-                        {
-                           // int N = (int)Truncate(Log(Size, 2.0)) + 1; //N=log2(M)+1
-                          //  size = (int)Pow(2, N);
-                           // size = (int)(size * 1.5);
-                            ComputeHash = ComputeHashCenter;
-                        }
+                        ComputeHash = ComputeHashCenter;
                         break;
                 }
                 switch (DoubleHashing)

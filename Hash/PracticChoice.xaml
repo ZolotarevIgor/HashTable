@@ -17,7 +17,7 @@
                 </TransformGroup>
             </StackPanel.RenderTransform>
             <Label Margin="10,4" Padding="0" FontSize="18">Тип хеширования:</Label>
-            <ComboBox Name="typeCB" HorizontalAlignment="Stretch" Margin="10,0" FontSize="18" SelectionChanged="typeCB_SelectionChanged" >
+            <ComboBox Name="typeCB" HorizontalAlignment="Stretch" Margin="10,0" FontSize="18" SelectionChanged="TypeCB_SelectionChanged" >
                 <ComboBoxItem>Открытое</ComboBoxItem>
                 <ComboBoxItem>Закрытое</ComboBoxItem>
             </ComboBox>

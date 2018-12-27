@@ -13,12 +13,10 @@ namespace Hash
 
             double screenHeight = SystemParameters.FullPrimaryScreenHeight;
             double screenWidth = SystemParameters.FullPrimaryScreenWidth;
-
-
-            Top = (screenHeight) / 4;
-            Left = (screenWidth) / 4;
-
-
+            
+            Top = screenHeight / 4;
+            Left = screenWidth / 4;
+        
         }
     }
 }

@@ -91,7 +91,7 @@
                     <Button Width="150" Margin="15,2" Click="Button_Click_2">Удалить</Button>
                     <Button Width="150" Margin="15,2" Click="Search_Button">Поиск элемента</Button>
                     <Button Width="150" Margin="15,2" Click="Stat_Button">Статистика</Button>
-                    <Button Width="30" Margin="15,2" Click="settings">
+                    <Button Width="30" Margin="15,2" Click="Settings">
                         <Image HorizontalAlignment="Left"  VerticalAlignment="Stretch"  Source="Resources\settings.png"/>
                     </Button>
 

@@ -32,7 +32,7 @@ namespace Hash
             this.Close();
         }
         
-        private void txtb_KeyDown(object sender, KeyEventArgs e)
+        private void Txtb_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
                 Button_Click(sender, e);

@@ -105,12 +105,12 @@ namespace Hash
             tree.Visibility = Visibility.Hidden;
         }
 
-        private void docViewer_FocusableChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private void DocViewer_FocusableChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             Button_Click(sender,new RoutedEventArgs());
         }
 
-        private void docViewer_MouseDown(object sender, MouseButtonEventArgs e)
+        private void DocViewer_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (true)
                 Button_Click(sender, e);

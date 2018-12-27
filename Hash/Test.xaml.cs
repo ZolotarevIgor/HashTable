@@ -199,7 +199,7 @@ namespace Hash
             
         }
 
-        private void settings(object sender, RoutedEventArgs e)
+        private void Settings(object sender, RoutedEventArgs e)
         {
             if (!PC.IsVisible)
             {
